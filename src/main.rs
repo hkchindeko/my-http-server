@@ -11,14 +11,14 @@ async fn router(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
             "👋 Hello World 🌍",
         ))),
 
-        (&Method::POST, "/hello") => {
-            let name = hyper::body::to_bytes(req.into_body()).await?;
-            let name_string = String::from_utf8(name.to_vec()).unwrap();
+        // (&Method::POST, "/hello") => {
+        //     let name = hyper::body::to_bytes(req.into_body()).await?;
+        //     let name_string = String::from_utf8(name.to_vec()).unwrap();
 
-            let answer = format!("{}{}", "👋 Hello ".to_owned(), name_string);
+        //     let answer = format!("{}{}", "👋 Hello ".to_owned(), name_string);
 
-            Ok(Response::new(Body::from(answer)))
-        }
+        //     Ok(Response::new(Body::from(answer)))
+        // }
 
         _ => {
             Ok(Response::new(Body::from("😡 try again")))
